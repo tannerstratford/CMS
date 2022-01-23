@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p>{{ contact.name }}</p>
+            <div>
+                <span class="pull-right">
+                    <button class="btn btn-primary" type="button">Edit</button>
+                    <button class="btn btn-danger" type="button">Delete</button>
+                </span>
+                <span class="text-left">
+                    <img src="{{ contact.imageUrl }}" alt="{{ contact.name }}" class="img-responsive"
+                        style="max-height: 75px;">
+                </span>
+            </div>
+        </div>
+        <div class="panel-body">
+           <p>Email: {{ contact.email }}</p> 
+            <p>Phone: {{ contact.phone }}</p> 
+        </div>
+    </div>
+</div>
