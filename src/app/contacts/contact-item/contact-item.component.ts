@@ -8,15 +8,10 @@ import { Contact } from '../contact.model';
 })
 export class ContactItemComponent implements OnInit {
   @Input() contact:Contact;
-  @Output() contactSelected = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onContactSelected(){
-    this.contactSelected.emit();
   }
 
 }

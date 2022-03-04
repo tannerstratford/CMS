@@ -4,8 +4,8 @@
             <p>{{ contact.name }}</p>
             <div>
                 <span class="pull-right">
-                    <button class="btn btn-primary" type="button">Edit</button>
-                    <button class="btn btn-danger" type="button">Delete</button>
+                    <button class="btn btn-primary" type="button" [routerLink]="['edit']">Edit</button>
+                    <button class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
                 </span>
                 <span class="text-left">
                     <img src="{{ contact.imageUrl }}" alt="{{ contact.name }}" class="img-responsive"

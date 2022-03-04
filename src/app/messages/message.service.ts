@@ -27,6 +27,7 @@ export class MessageService {
   }
 
   addMessage(message: Message) {
+    message.id = (this.messages.length + 1).toString();
     this.messages.push(message);
     this.messageChangedEvent.emit(this.messages.slice());
   }
