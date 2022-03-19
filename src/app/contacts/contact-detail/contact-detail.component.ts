@@ -11,6 +11,8 @@ import { ContactService } from '../contact.service';
 export class ContactDetailComponent implements OnInit {
   id: string
   contact:Contact;
+  groupContacts: Contact[] = [];
+
   
   constructor(private contactService: ContactService,
     private route: ActivatedRoute,
@@ -24,6 +26,10 @@ export class ContactDetailComponent implements OnInit {
         this.contact = this.contactService.getContact(this.id);
       }
     )
+
+    if(this.contact.group !== null && this.contact.group !== undefined){
+      this.groupContacts = JSON.parse(JSON.stringify(this.contact.group));
+    }
   }
 
   onDelete() {

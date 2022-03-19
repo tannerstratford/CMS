@@ -42,7 +42,7 @@ export class ContactService {
     this.contactChangedEvent.emit(this.contacts.slice());
  }
 
- addcontact(newContact: Contact) {
+ addContact(newContact: Contact) {
   if (newContact === undefined || newContact === null){
     return
   }
@@ -55,7 +55,7 @@ export class ContactService {
 }
 
 
-updatecontact(originalContact: Contact, newContact: Contact) {
+updateContact(originalContact: Contact, newContact: Contact) {
   if (originalContact ===  undefined || originalContact === null || newContact === undefined || newContact === null){
     return
   }
