@@ -40,7 +40,7 @@ export class ContactDetailComponent implements OnInit {
 
   onDelete() {
     console.log(this.contact.id)
-    this.contactService.deleteContact(this.contact);
+    this.contactService.deleteContact(this.originalContact);
     this.router.navigate(['/contacts']);
  }
 }

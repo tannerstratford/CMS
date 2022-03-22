@@ -63,29 +63,14 @@ export class ContactService {
   }
 
   deleteContact(contact: Contact) {
-    console.log("delete contact called")
     if (!contact) {
-      console.log("not a contact")
        return;
     }
-    console.log(contact)
-    console.log(this.contacts)
-    //let pos = this.contacts.indexOf(contact.id); //This for some reason was always returning -1
-    let pos = -1;
-    for(let i = 0; i < this.contacts.length; i++){
-      if(contact.id == this.contacts[i].id){
-        pos = i;
-      }
-    }
-    console.log(pos)
+    let pos = this.contacts.indexOf(contact);
     if (pos < 0) {
-      console.log("position is less than 0")
-      //console.log(pos)
        return;
     }
     this.contacts.splice(pos, 1);
-    console.log(this.contacts);
-    //this.contactChangedEvent.emit(this.contacts.slice());
     this.storeContacts();
  }
 
