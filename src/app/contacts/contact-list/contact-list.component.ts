@@ -10,6 +10,7 @@ import { ContactService } from '../contact.service';
 })
 export class ContactListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
+  term: string;
 
   contacts:Contact[] = [];
 
@@ -32,6 +33,10 @@ export class ContactListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  search(value: string) {
+    this.term = value;
   }
 
 }

@@ -3,7 +3,7 @@ import {Document} from './document.model';
 export const MOCKDOCUMENTS: any[] = [
   {
     id: '1',
-    name: 'CIT 425 - Data Warehousing',
+    name: 'CIT 425 - False data',
     url: 'https://rkjdatawarehousing.wordpress.com/',
     children: [
       {

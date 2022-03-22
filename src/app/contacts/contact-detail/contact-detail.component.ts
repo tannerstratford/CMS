@@ -11,6 +11,7 @@ import { ContactService } from '../contact.service';
 export class ContactDetailComponent implements OnInit {
   id: string
   contact:Contact;
+  originalContact: Contact;
   groupContacts: Contact[] = [];
 
   
@@ -19,20 +20,26 @@ export class ContactDetailComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params
-    .subscribe(
+    this.route.params.subscribe(
       (params: Params) => {
-        this.id = params['id'];
-        this.contact = this.contactService.getContact(this.id);
-      }
-    )
+        this.id = params['id']
 
-    if(this.contact.group !== null && this.contact.group !== undefined){
-      this.groupContacts = JSON.parse(JSON.stringify(this.contact.group));
-    }
+        this.originalContact = this.contactService.getContact(this.id)
+
+        if (this.originalContact === undefined || this.originalContact === null) {
+          return
+        }
+        
+        this.contact = JSON.parse(JSON.stringify(this.originalContact));
+
+        if(this.contact.group !== null && this.contact.group !== undefined){
+          this.groupContacts = JSON.parse(JSON.stringify(this.originalContact.group));
+        }
+      })
   }
 
   onDelete() {
+    console.log(this.contact.id)
     this.contactService.deleteContact(this.contact);
     this.router.navigate(['/contacts']);
  }
