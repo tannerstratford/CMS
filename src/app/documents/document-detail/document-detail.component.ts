@@ -19,10 +19,12 @@ export class DocumentDetailComponent implements OnInit {
     private windRefService: WindRefService) { }
 
   ngOnInit(): void {
+    console.log("document detail called")
     this.route.params
     .subscribe(
       (params: Params) => {
         this.id = params['id'];
+        //this.documentService.getDocuments()
         this.document = this.documentService.getDocument(this.id);
       }
     )

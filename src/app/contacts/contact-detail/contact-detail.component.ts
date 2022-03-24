@@ -20,6 +20,7 @@ export class ContactDetailComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    console.log("contact detail called")
     this.route.params.subscribe(
       (params: Params) => {
         this.id = params['id']
@@ -27,13 +28,18 @@ export class ContactDetailComponent implements OnInit {
         this.originalContact = this.contactService.getContact(this.id)
 
         if (this.originalContact === undefined || this.originalContact === null) {
+          console.log("original contact undefined")
           return
         }
         
         this.contact = JSON.parse(JSON.stringify(this.originalContact));
 
         if(this.contact.group !== null && this.contact.group !== undefined){
+          console.log("groupContacts called")
           this.groupContacts = JSON.parse(JSON.stringify(this.originalContact.group));
+        }
+        else{
+          this.groupContacts = []
         }
       })
   }

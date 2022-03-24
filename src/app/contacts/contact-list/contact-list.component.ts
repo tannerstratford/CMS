@@ -17,6 +17,7 @@ export class ContactListComponent implements OnInit, OnDestroy {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
+    console.log("contacts list called")
     this.contacts = this.contactService.getContacts();
     this.subscription = this.contactService.contactListChangedEvent.subscribe(
       (contactsList: Contact[]) => {
@@ -29,6 +30,10 @@ export class ContactListComponent implements OnInit, OnDestroy {
         this.contacts = contacts;
       }
     )
+
+    
+
+    console.log("contacts list end")
   }
 
   ngOnDestroy(): void {
